@@ -39,7 +39,7 @@ const config = {
                             loader: 'sass-loader'
                         }
                     ]
-                })                
+                })
                 //exclude: /node_modules/
             },
             {
@@ -52,11 +52,6 @@ const config = {
     plugins: [
         new webpack.ProgressPlugin(),
         new ExtractTextWebpackPlugin('styles.css'),
-        new webpack.optimize.CommonsChunkPlugin({
-            filename: 'common.js',
-            minChunks: 3,
-            name: 'common'
-        }),
         new CleanWebPackPlugin(['public'], { root: commonPaths.root }),
         new HtmlWebPackPlugin({
             template: commonPaths.template,
