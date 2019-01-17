@@ -18,11 +18,10 @@
 .env.production.local
 
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-src/*
-public/*
+# commented for git (dev), uncommented for prod (build to heroku)
+#src/*
+#public/*
 build/static/css/*.map
 build/static/js/*.map
 
