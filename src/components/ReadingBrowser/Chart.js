@@ -12,9 +12,8 @@ import 'react-input-range/lib/css/index.css';
 
 class Chart extends Component {
     constructor(props) {
-        super(props); 
+        super(props);
 
-        this.update = this.update.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.formatLabel = this.formatLabel.bind(this);
@@ -27,10 +26,11 @@ class Chart extends Component {
         };
 
         this.style = {
-            display: 'flex',
+            display: 'grid',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            gridTemplateRows: 'auto 90%',
         };
     }
 
@@ -89,11 +89,7 @@ class Chart extends Component {
         return out;
     }
 
-    update() {
-        this.setState({
-            data: this.getLines2()
-        });
-    }
+
 
     handleClick() {
         const { state } = this;
@@ -130,8 +126,8 @@ class Chart extends Component {
 
             <div style={{...style, width}}>
                 {
-                    state.zoom && reading.length > 0 &&
-                    <div style={{width: width - width * 0.10, marginBottom: '15px' }}>
+                    reading.length > 0 &&
+                    <div>
                         <InputRange
                             maxValue={reading.length > 0 ? reading.length : 1}
                             minValue={0}
@@ -139,12 +135,12 @@ class Chart extends Component {
                             allowSameValues={false}
                             draggableTrack={true}
                             formatLabel={formatLabel}
-                            style={{marginLeft: '15px'}}
                             onChange={handleChange} />
                     </div>
                 }
                 <LineChart
                     axes
+                    dataPoints={false}
                     grid
                     verticalGrid
                     xTicks={state.zoom?30:range.hours}

@@ -10,7 +10,7 @@ export const Header = () => (
     <AppBar position="static" color="default">
         <Toolbar>
             <Typography variant="h6" color="inherit">
-                Usted es un bolude - demo
+                Demo - Reading Chart
                 <FetchingSpinner />
             </Typography>
         </Toolbar>
