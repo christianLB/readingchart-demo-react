@@ -27,10 +27,8 @@ class Chart extends Component {
 
         this.style = {
             display: 'grid',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
             gridTemplateRows: 'auto 90%',
+            placeItems: 'center',
         };
     }
 
@@ -127,7 +125,7 @@ class Chart extends Component {
             <div style={{...style, width}}>
                 {
                     reading.length > 0 &&
-                    <div>
+                    <div style={{width:'300px'}}>
                         <InputRange
                             maxValue={reading.length > 0 ? reading.length : 1}
                             minValue={0}
@@ -137,6 +135,7 @@ class Chart extends Component {
                             formatLabel={formatLabel}
                             onChange={handleChange} />
                     </div>
+
                 }
                 <LineChart
                     axes
